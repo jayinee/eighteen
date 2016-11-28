@@ -1,0 +1,331 @@
+/** General Styles **/
+
+* {
+	box-sizing: border-box;
+}
+
+
+body {
+	margin: .7em;
+}
+
+h1 + p {
+	color: darkgrey;
+	font-style: italic;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+/** Collapsible Styles **/
+
+#accord_first[type="radio"],
+#accord_second[type="radio"],
+#accord_third[type="radio"],
+#accord_fourth[type="radio"] {
+	display: none;
+}
+
+.accordion {
+	list-style: none;
+	max-width: 24em;
+}
+
+.accordion li {
+	border: 1px solid black;
+	border-bottom: none;
+	padding: 1em;
+}
+
+#accord_first + li {
+	height: 0;
+	overflow: hidden;
+	transition: all .7s ease;
+	padding: 0;
+	border-top: 0px solid black;
+}
+
+#accord_first + li > p {
+	font-size: 0;
+	opacity: 0;
+	transition: all .7s ease;
+}
+
+#accord_first:checked + li {
+	height: 100%;
+	padding: 1em;
+	border-top: 1px solid black;
+	transition: all .7s ease;
+}
+
+#accord_first:checked + li > p {
+	font-size: initial;
+	opacity: 1;
+	transition: font-size .7s ease;
+}
+
+#accord_second + li {
+	height: 0;
+	overflow: hidden;
+	transition: all .7s ease;
+	padding: 0;
+	border-top: 0px solid black;
+}
+
+#accord_second + li > p {
+	font-size: 0;
+	transition: all .7s ease;
+}
+
+#accord_second:checked + li {
+	height: 100%;
+	padding: 1em;
+	border-top: 1px solid black;
+	transition: all .7s ease;
+}
+
+#accord_second:checked + li > p {
+	font-size: initial;
+	transition: all .7s ease;
+}
+
+#accord_third + li {
+	height: 0;
+	overflow: hidden;
+	transition: all .7s ease;
+	padding: 0;
+	border-top: 0px solid black;
+}
+
+#accord_third + li > p {
+	font-size: 0;
+	transition: all .7s ease;
+}
+
+#accord_third:checked + li {
+	height: 100%;
+	padding: 1em;
+	border-top: 1px solid black;
+	transition: all .7s ease;
+}
+
+#accord_third:checked + li > p {
+	font-size: initial;
+	transition: all .7s ease;
+}
+
+#accord_fourth + li {
+	height: 0;
+	overflow: hidden;
+	transition: all .7s ease;
+	padding: 0;
+	border-top: 0px solid black;
+	border-bottom: 1px solid black;
+}
+
+#accord_fourth + li > p {
+	font-size: 0;
+	transition: all .7s ease;
+}
+
+#accord_fourth:checked + li {
+	height: 100%;
+	padding: 1em;
+	border-top: 1px solid black;
+	transition: all .7s ease;
+}
+
+#accord_fourth:checked + li > p {
+	font-size: initial;
+	transition: all .7s ease;
+}
+
+
+/* Dropdown */
+
+.btn {
+	text-decoration: none;
+    color: #fff;
+    background-color: #26a69a;
+    padding: 1em;
+    cursor: pointer;
+	width: 100%;
+	max-width: 150px;
+	display: inline-block;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.dropdown-menu {
+    position: relative;
+    display: block;
+    width: 150px;
+}
+
+.dropdown-menu-content li {
+	list-style: none;
+	padding: 10px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.dropdown-menu-content li a {
+	width: 100%;
+	display: inline-block;
+	color: #26a69a;
+	text-decoration: none;
+}
+
+.dropdown-menu-content {
+	position: absolute;
+	width: 100%;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility .8s;
+    margin: 0;
+    padding: 0;
+    top: -10px;
+    left: 0;
+    color: #26a69a
+}
+
+#dropdown-button:focus{
+	outline: none;
+}
+
+#dropdown-button:focus + .dropdown-menu-content {
+	opacity: 1;
+    visibility: visible;
+    width: 100%;
+    background: #ffffff;
+    color: #26a69a;
+    text-align: center;
+    transition: all .8s;
+    box-shadow: 0px 0px 2px 2px #ccc;
+    transform: translateY(10px);
+}
+
+/** ScrollSpy **/
+
+.scrollspy {
+	border: 1px solid black;
+	/*display: inline-block;*/
+	max-width: 60%;
+	padding-left: 0;
+	margin-bottom: 0;
+	box-sizing: border-box;
+	background-color: #E8E8E8;
+}
+
+.scrollspy li {
+	display: inline-block;
+}
+
+.scrollspy li a {
+	display: inline-block;
+	padding: 1em;
+	text-decoration: none;
+}
+
+.scrollspy li a:hover,
+.scrollspy li a:focus {
+	background-color: lightgrey;
+}
+
+.scrollspy .activeTab {
+	background-color: lightgrey;
+}
+
+#scrollspy_container {
+	/*background-color: tomato;*/
+	max-width: 60%;
+	max-height: 20em;
+	overflow: scroll;
+	padding: 0 .7em;
+	box-sizing: border-box;
+}
+
+/** Modal **/
+.modal {
+	position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s linear;
+    background: rgba(0, 0, 0, .5);
+}
+
+#modal1:target {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal-content {
+	opacity: 0;
+	visibility: hidden;
+	transition: all 1s ease;
+	margin: 10% auto 0 auto;
+    width: 700px; 
+    background: #ffffff;
+    padding: 30px; 
+    position: relative;
+    bottom: 0;
+    transform: scale(.7);
+}
+
+#modal1:target .modal-content {
+	opacity: 1;
+	visibility: visible;
+	transform: scale(1);
+}
+
+.modal-content h2 {
+	font-size: 2em;
+}
+
+.modal-content p {
+	margin: 0 0 30px;
+}
+
+.close-modal {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.modal-footer {
+	text-align: right;
+}
+
+.modal-footer a {
+	text-decoration: none;
+	color: #343434;
+	text-transform: uppercase;
+	margin: 20px;
+	padding: 10px 15px;
+	border-radius: 5px;
+	transition: all 1s;
+}
+
+.modal-footer a:hover {
+	background: #ccc;
+}
